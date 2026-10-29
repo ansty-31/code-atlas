@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-29 — Serve startup fixes
+
+- Automatically try the next port when the default port is occupied.
+- Report an actionable error when an explicitly selected port is in use.
+- Refuse to pair an existing dataset with a different source directory and show
+  the rebuild command instead.
+- Add startup regression tests for occupied ports and source/dataset mismatch.
+
 ## 2026-10-29 — Initial Code Atlas derivative
 
 Based on `kolulu23/Zedema` commit

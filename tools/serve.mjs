@@ -38,8 +38,27 @@ const argVal = (name, dflt) => {
   const i = argv.indexOf(name);
   return i >= 0 && argv[i + 1] ? argv[i + 1] : dflt;
 };
-const PORT = Number(argVal('--port', process.env.PORT ?? 5184));
+let PORT = Number(argVal('--port', process.env.PORT ?? 5184));
 const HOST = argVal('--host', '127.0.0.1');
+const EXPLICIT_PORT = argv.includes('--port') || process.env.PORT !== undefined;
+if (!Number.isInteger(PORT) || PORT < 0 || PORT > 65535) {
+  process.stderr.write('[serve] Invalid port; use --port with a number between 0 and 65535.\n');
+  process.exit(1);
+}
+
+const metaPath = path.join(DIST, 'data', 'meta.json');
+if (SOURCE && fs.existsSync(metaPath)) {
+  const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+  if (meta.sourceRootAbs && path.resolve(meta.sourceRootAbs) !== SOURCE.dir) {
+    const quoted = `'${SOURCE.dir.replace(/'/g, "'\\''")}'`;
+    process.stderr.write(
+      `[serve] The existing data was built for a different source directory.\n` +
+      `Rebuild for this project first:\n  npm run build -- --src ${quoted}\n` +
+      `Then run:\n  npm run serve -- --src ${quoted}\n`
+    );
+    process.exit(1);
+  }
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -156,7 +175,22 @@ const server = http.createServer((req, res) => {
   send(req, res, abs);
 });
 
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE' && !EXPLICIT_PORT && PORT < 65535) {
+    process.stderr.write(`[serve] Port ${PORT} is already in use; trying ${PORT + 1}.\n`);
+    PORT++;
+    server.listen(PORT, HOST);
+    return;
+  }
+  const message = err.code === 'EADDRINUSE'
+    ? `Port ${PORT} is already in use. Stop the other server or use --port ${PORT < 65535 ? PORT + 1 : 5184}.`
+    : `Could not listen on ${HOST}:${PORT}: ${err.message}`;
+  process.stderr.write(`[serve] ${message}\n`);
+  process.exitCode = 1;
+});
+
 server.listen(PORT, HOST, () => {
+  PORT = server.address().port;
   const size = fs.existsSync(path.join(DIST, 'data'))
     ? fs.readdirSync(path.join(DIST, 'data')).length
     : 0;

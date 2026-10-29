@@ -26,7 +26,7 @@ npm run build -- --src /path/to/project
 npm run serve -- --src /path/to/project
 ```
 
-服务地址默认为 [localhost:5184](http://localhost:5184)。构建和服务必须指向同一份源码。也可以在本项目的 `.env` 中保存路径：
+服务地址默认为 [localhost:5184](http://localhost:5184)；端口被占用时会自动尝试下一个端口，请以终端打印的地址为准。也可用 `npm run serve -- --src /path/to/project --port 5185` 显式指定端口。构建和服务必须指向同一份源码；更换工程时先重新构建，避免显示旧工程数据。也可以在本项目的 `.env` 中保存路径：
 
 ```dotenv
 ATLAS_SRC=/path/to/project
