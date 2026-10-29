@@ -1,6 +1,0 @@
-[submodule "Umbrella"]
-	path = Umbrella
-	url = https://github.com/PZ-Umbrella/Umbrella
-[submodule "pzmc-template"]
-	path = pzmc-template
-	url = https://github.com/Project-Zomboid-Community-Modding/pzmc-template.git

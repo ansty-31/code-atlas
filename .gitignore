@@ -1,10 +1,19 @@
-# Decompiled source code for reference only
-zombie/
-zomboid/
+node_modules
 
-# Local cache of decompiled sources and decompiler binaries
-.api-cache/
+# Build output: the bundled app plus the generated JSON bundle (dist/data/).
+# Both are produced by `npm run build` and are never committed.
+dist/
+
+# Local tooling (headless browser + its shared libraries + screenshots + trailer)
+.npm-cache/
+.pw-browsers/
+.pw-libs/
+.pw-shots/
+.pw-video/
+
+# Local configuration, reports and session notes are not release source.
 .env
-.DS_Store
-tmp/
-examples/
+.env.*
+!.env.example
+docs/development-pause.md
+*.log

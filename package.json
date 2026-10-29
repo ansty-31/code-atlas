@@ -1,0 +1,63 @@
+{
+  "name": "code-atlas",
+  "version": "1.0.0",
+  "description": "Interactive architecture, treemap and dependency atlas for Python, C++ and Java source repositories",
+  "scripts": {
+    "data": "node tools/extract.mjs",
+    "build": "node tools/build.mjs",
+    "dev": "node tools/build.mjs --dev",
+    "serve": "node tools/serve.mjs",
+    "start": "node tools/build.mjs && node tools/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run test:unit && npm run test:multilingual",
+    "test:unit": "node --import ./tools/test/ts-resolve.mjs --test tools/test/unit/*.test.mjs",
+    "test:browser": "node tools/test/runner.mjs --spec multilingual",
+    "test:shots": "node tools/test/runner.mjs --spec multilingual --shots",
+    "test:multilingual": "node tools/build.mjs --src tools/test/fixtures/mixed && node tools/test/runner.mjs --src tools/test/fixtures/mixed --spec multilingual",
+    "test:browser:legacy": "node tools/test/runner.mjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/d3-force": "^3.0.10",
+    "@types/d3-hierarchy": "^3.1.7",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-selection": "^3.0.11",
+    "@types/node": "^26.5.1",
+    "playwright": "^1.63.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-solid": "^2.11.14"
+  },
+  "dependencies": {
+    "d3-force": "^3.0.0",
+    "d3-hierarchy": "^3.1.2",
+    "d3-scale": "^4.0.2",
+    "d3-selection": "^3.0.0",
+    "solid-js": "^1.9.15",
+    "tree-sitter-c": "^0.24.1",
+    "tree-sitter-cpp": "^0.23.4",
+    "tree-sitter-java": "^0.23.5",
+    "tree-sitter-python": "^0.25.0",
+    "web-tree-sitter": "^0.27.0"
+  },
+  "private": true,
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "kolulu23",
+    "url": "https://github.com/kolulu23"
+  },
+  "contributors": [
+    {
+      "name": "ansty-31",
+      "url": "https://github.com/ansty-31"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansty-31/code-atlas.git"
+  },
+  "homepage": "https://github.com/ansty-31/code-atlas#readme",
+  "bugs": {
+    "url": "https://github.com/ansty-31/code-atlas/issues"
+  }
+}

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# post-merge hook — restore API refs pinned by the branch after pull/merge.
-ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo "")"
-[ -n "$ROOT" ] && [ -f "$ROOT/scripts/restore_api_refs.sh" ] || exit 0
-exec "$ROOT/scripts/restore_api_refs.sh" --quiet

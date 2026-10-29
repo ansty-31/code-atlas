@@ -1,5 +1,0 @@
-version=1
-title=ZeBadminton
-description=MVP: experimental multiplayer badminton practice courts for Build 42.20.
-tags=Build 42;Multiplayer;
-visibility=private

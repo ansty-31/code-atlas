@@ -1,8 +1,0 @@
-version=1
-title=Hold The Door
-description=[h2]Keep zombies out by holding the door, with your body...[/h2]
-description=
-description=
-description=
-tags=Build 42;
-visibility=1

@@ -1,6 +1,0 @@
-{
-  "Lua.workspace.library": ["./Umbrella"],
-  "files.readonlyInclude": {
-    "Umbrella/**": true
-  }
-}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <!--
+      The shell markup lives in `src/app/app.tsx`. Only the document head stays
+      here: `initLanguage()` localizes the title and the description before the
+      app mounts, so they have to exist in the served HTML.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Code Atlas — source architecture map</title>
+    <meta
+      name="description"
+      content="Interactive treemap, hierarchy and dependency atlas for Python, C++ and Java projects."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1117'/%3E%3Crect x='5' y='5' width='10' height='22' fill='%234ec9b0'/%3E%3Crect x='17' y='5' width='10' height='9' fill='%23e8b84b'/%3E%3Crect x='17' y='16' width='10' height='11' fill='%23d16d9e'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,5 +1,0 @@
-{
-    "Sandbox_HoldTheDoor": "顶住这扇门",
-    "Sandbox_HoldTheDoor_HPMultiplier": "门耐久倍率",
-    "Sandbox_HoldTheDoor_HPMultiplier_tooltip": "顶门时，门的剩余耐久值会乘以此倍率。松手后，剩余耐久值按相同比例还原，不会修复已受到的损伤。"
-}

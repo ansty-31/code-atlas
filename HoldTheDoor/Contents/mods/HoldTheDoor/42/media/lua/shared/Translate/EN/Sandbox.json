@@ -1,5 +1,0 @@
-{
-    "Sandbox_HoldTheDoor": "Hold The Door",
-    "Sandbox_HoldTheDoor_HPMultiplier": "Door HP Multiplier",
-    "Sandbox_HoldTheDoor_HPMultiplier_tooltip": "Multiplies the door's remaining HP while held. Damage is scaled back proportionally when released."
-}

@@ -1,4 +1,0 @@
-{
-    "name": "Hold The Door",
-    "description": "Buy your team a few more seconds.<BR>Right-click a closed, unlocked, unbarricaded door and choose Hold It to brace it with your body. The door gains temporary HP while you hold it.<BR>Choose Let Go, move, run, aim, or cancel the action to release. You cannot open or lock doors while holding. If the held door breaks, you fall down.<BR>Door HP Multiplier is configurable in Sandbox Options. Supports ordinary and player-built single doors; garage and multi-panel doors are excluded.<BR>Languages: English and Simplified Chinese."
-}
